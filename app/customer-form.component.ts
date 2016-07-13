@@ -44,10 +44,8 @@ export class CustomerFormComponent implements OnInit {
         if (this.selectedHealthProblem) {
             this.model.healthProblems.push(this.selectedHealthProblem);
         }
-        
-//TODO logic
+
         this.model.bookedEvents.push(this.selectedEventInfo);
-        
         this.adventureService.addCustomer(this.model);
         this.lastModel = this.model;
 

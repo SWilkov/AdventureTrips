@@ -12,6 +12,7 @@ import { AdventureDetailComponent } from "./adventure-detail.component"
 export class AdventureComponent implements OnInit {
     public selectedAdventure: AdventureEvent;
     private adventureName: string = "Sky Diving";
+    public loading: boolean = true;
 
     constructor(private adventureService:AdventureService,
                 private router: Router) { }
@@ -31,6 +32,7 @@ export class AdventureComponent implements OnInit {
             .subscribe(data => {
                 console.log(data);
                 this.selectedAdventure = data;
+                this.loading = false;
             },
             error => console.log(error.message || error),
             () => console.log("getadventure complete"));
