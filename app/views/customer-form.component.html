@@ -1,0 +1,99 @@
+
+    <h3>Booking Form</h3>
+    <div id="customer-form" class="row">
+      <div [hidden]="submitted" class="col-md-6">
+        <form *ngIf="active" (ngSubmit)="OnSubmit()" #customerForm="ngForm">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" [(ngModel)]="model.firstName" name="first" 
+                class="form-control" required #first="ngModel">
+            <div [hidden]="first.valid || first.pristine" class="alert alert-danger">
+              First name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" [(ngModel)]="model.lastName" name="last"
+                class="form-control" required #last="ngModel">
+            <div [hidden]="last.valid || last.pristine" class="alert alert-danger">
+              Last name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" class="form-control" 
+              [(ngModel)]="model.age" required name="age" #age="ngModel">
+            <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
+              Age is required
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label for="gender">Gender</label><br/>
+              <input type="radio" name="gender" [(ngModel)]="model.gender" value="male"
+                > Male<br>
+              <input type="radio" name="gender" [(ngModel)]="model.gender"
+                value="female" checked> Female<br>
+              <input type="radio" name="gender" [(ngModel)]="model.gender"
+                value="other"> Other
+          </div>
+
+          <div class="form-group">
+            <label for="weight">Weight</label>
+            <input type="text" class="form-control"
+              [(ngModel)]="model.weight" name="weight" required
+              #weight="ngModel">
+            <div [hidden]="weight.valid || weight.pristine" class="alert alert-danger">
+              Weight is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="healthProblem">Chronic Illness</label>  
+            <select class="form-control" [(ngModel)]="selectedHealthProblem"
+              name="healthProblem">
+                <option *ngFor="let healthProblem of healthProblems"
+                        [ngValue]="healthProblem">{{ healthProblem.name }}</option>
+            </select>
+          </div>
+
+          <div *ngIf="availableDates" class="form-group">
+            <div class="col-md-6">
+              <label for="availableDates">Available Dates</label>
+              <ul>
+                <li *ngFor="let available of availableDates">            
+                  <input type="radio" name="date" 
+                    (click)="eventInfoChanged(available)">
+                    {{available.date | date:"MM/dd/yy"}}
+                </li>
+              </ul> 
+            </div>
+            <div class="col-md-6">
+              <label for="placesTaken">Places Left</label>
+              <ul>
+                <li *ngFor="let available of availableDates">
+                   {{ available.placesLeft }} 
+                </li>
+              </ul>
+            </div>       
+          </div>
+          
+          
+          
+          <button type="submit" class="btn btn-primary btn-lg"
+          [disabled]="!customerForm.form.valid">Submit</button>
+        </form>
+    </div>
+
+    <div [hidden]="!submitted" class="col-md-4">
+        <h3>Congratulations</h3>
+        {{ lastModel.firstName }} {{ lastModel.lastName }}
+        <div>
+           <span>your <strong></strong> trip is booked.</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg"
+         (click)="gotoHome()">Home</button>
+    </div>
+</div>

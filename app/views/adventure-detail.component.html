@@ -1,0 +1,26 @@
+
+<div class="row">    
+    <div *ngIf="adventure">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Trip Details</h4>
+            <h2>{{ adventure.name }}</h2>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <img src="./app/images/skydiving.jpg" />
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <p> {{ adventure.headline }}</p>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <p class="highlight-bg"> {{ adventure.description }}</p>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Experience Highlights</h4>
+           <ul>
+               <li *ngFor="let extra of adventure.experienceExtras">
+                  {{ extra.content }}   
+               </li>
+           </ul> 
+        </div>
+    </div>
+</div>

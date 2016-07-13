@@ -1,0 +1,46 @@
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+
+header {
+    background: #000;
+    color: #fff;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+header h2 {
+  margin-left:20px;
+  font-weight: 600;
+}
+
+p {
+  padding-top: 10px;
+}
+
+.highlight-bg {
+  background:#eef0f6;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+#customer-form ul li {
+  margin-bottom: 5px;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+}
+
+#customer-form form button {
+  margin-top:10px;
+}
+
+input[type='radio']:hover {
+  box-shadow:0 0 5px 0px orange inset;
+}
