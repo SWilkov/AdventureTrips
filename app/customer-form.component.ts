@@ -36,12 +36,6 @@ export class CustomerFormComponent implements OnInit {
     public ngOnInit() {
         this.getHealthProblems();
         this.getAvailableDates();
-
-        this.model.firstName = "Scotty";
-        this.model.lastName = "Wilkie";
-        this.model.gender = "female";
-        this.model.age = 41;
-        this.model.weight = 89;
     }
 
     public OnSubmit() {
